@@ -1,0 +1,7 @@
+Source: ccnq3-support
+Maintainer: Stephane Alnet (Packaging) <stephane@shimaore.net>
+
+Package: ccnq3-support
+Architecture: all
+Depends: ccnq3
+Description: Support toolset for CCNQ3
