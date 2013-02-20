@@ -1,3 +1,10 @@
+ccnq3-support (0.0.2) unstable; urgency=low
+
+  * Added README
+  * report in case of errors
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Feb 2013 17:13:13 +0100
+
 ccnq3-support (0.0.1) unstable; urgency=low
 
   * Initial release.
