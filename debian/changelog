@@ -1,3 +1,9 @@
+ccnq3-support (0.0.3) unstable; urgency=low
+
+  * better feedback
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Feb 2013 17:18:16 +0100
+
 ccnq3-support (0.0.2) unstable; urgency=low
 
   * Added README
