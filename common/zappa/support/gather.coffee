@@ -95,7 +95,7 @@ $ ->
             url: "/provisioning/#{qs.escape 'number:'+gnum}"
             dataType: 'json'
             error: ->
-              $('.gnum',nl).empty()
+              $('.gnum',nl).empty().html '(global number not found)'
               log "Failed to get number gnum=#{gnum}"
             success: (doc) ->
               $('.gnum',nl).empty()
@@ -121,7 +121,7 @@ $ ->
             url: "/provisioning/#{qs.escape 'endpoint:'+el_doc.endpoint}"
             dataType: 'json'
             error: ->
-              $('.endpoint',nl).empty()
+              $('.endpoint',nl).empty().html '(endpoint not found)'
               log "Failed to get endpoint = #{el_doc.endpoint}"
             success: (doc) ->
               $('.endpoint',nl).empty()
@@ -151,7 +151,7 @@ $ ->
               include_docs: true
               descending: true
             error: ->
-              $('.calls',nl).empty()
+              $('.calls',nl).empty().html '(no calls found)'
               log "Failed to get CDRs gnum = #{gnum}"
             success: (data) ->
               log data
@@ -176,7 +176,7 @@ $ ->
             url: "/locations/#{qs.escape el_doc.endpoint}"
             dataType: 'json'
             error: ->
-              $('.location',nl).empty()
+              $('.location',nl).empty().html '(no location found)'
               log "Failed to get location for endpoint = #{el_doc.endpoint}"
             success: (doc) ->
               $('.location',nl).empty()
