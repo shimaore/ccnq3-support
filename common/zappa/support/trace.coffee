@@ -141,11 +141,9 @@ $ ->
     if not from_user? or from_user is ''
       from_user = null
 
-    return unless from_user
+    return unless from_user?
 
-    gnum = local_to_global from_user
-
-    last_calls $('#trace'), gnum
+    last_calls $('#trace'), from_user
 
   # Handle form submission
   t = null
