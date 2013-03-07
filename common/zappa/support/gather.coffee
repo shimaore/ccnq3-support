@@ -142,36 +142,7 @@ $ ->
 
           # Get last few calls to/from
           if gnum?
-            $('.calls',nl).spin()
-            limit = 20
-            $.ajax
-              type: 'GET'
-              url: "/cdrs/_design/addon/_view/cdr_by_number"
-              dataType: 'json'
-              data:
-                endkey: JSON.stringify [gnum]
-                startkey: JSON.stringify [gnum,'z']
-                limit: limit
-                include_docs: true
-                descending: true
-              error: ->
-                $('.calls',nl).empty().html "(no calls found for global number #{gnum})"
-                log "Failed to get CDRs gnum = #{gnum}"
-              success: (data) ->
-                log data
-                $('.calls',nl).empty()
-                $('.calls',nl).append "<div>Last #{limit} calls:</div>"
-                return unless data?.rows?
-                for row in data.rows
-                  do (row) ->
-                    doc = row.doc
-                    g3 = $ """
-                    <div class="call">
-                      #{doc.variables.start_stamp} (#{doc.variables.ccnq_direction}, #{doc.variables.ccnq_profile}) #{doc.variables.ccnq_from_e164} → #{doc.variables.ccnq_to_e164}
-                    </div>
-                    """
-                    g3.data 'doc', doc
-                    $('.calls',nl).append g3
+            last_calls nl, gnum
 
           # Get endpoint status (from "locations" db)
           if el_doc.endpoint?

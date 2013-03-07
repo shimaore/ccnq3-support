@@ -11,6 +11,7 @@ html ->
     script type:'text/javascript', src:'assets/spin.min.js'
     script type:'text/coffeescript', src:'entry-to-local.coffee'
     script type:'text/coffeescript', src:'local-to-global.coffee'
+    script type:'text/coffeescript', src:'common.coffee'
     script type:'text/coffeescript', src:'gather.coffee'
     script type:'text/coffeescript', src:'trace.coffee'
   body ->

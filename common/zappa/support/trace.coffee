@@ -119,7 +119,33 @@ $ ->
       </label>
       <input type="submit" />
     </form>
+    <div class="calls"></div>
   '''
+
+  t = null
+  $('body').on 'keyup', '#from_user', ->
+    # Throttle
+    if t? then clearTimeout t
+    t = setTimeout run, 250
+
+  run = ->
+
+    t = null
+    limit = $('#limit').val()
+
+    # Cleanup parameters
+    from_user = $('#from_user').val()
+    if from_user? and from_user isnt ''
+      from_user = from_user.replace /[^\d]+/g, ''
+      from_user = entry_to_local from_user
+    if not from_user? or from_user is ''
+      from_user = null
+
+    return unless from_user
+
+    from_user = local_to_global from_user
+
+    list_calls $('#trace'), gnum
 
   # Handle form submission
   t = null
