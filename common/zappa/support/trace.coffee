@@ -145,7 +145,7 @@ $ ->
 
     from_user = local_to_global from_user
 
-    list_calls $('#trace'), gnum
+    last_calls $('#trace'), gnum
 
   # Handle form submission
   t = null
