@@ -143,7 +143,7 @@ $ ->
 
     return unless from_user
 
-    from_user = local_to_global from_user
+    gnum = local_to_global from_user
 
     last_calls $('#trace'), gnum
 
