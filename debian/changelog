@@ -1,3 +1,9 @@
+ccnq3-support (0.0.5) unstable; urgency=low
+
+  * traces: add last calls lookup based on from_user
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 07 Mar 2013 16:34:37 +0100
+
 ccnq3-support (0.0.4) unstable; urgency=low
 
   * only trigger data gathering if valid keys are present
