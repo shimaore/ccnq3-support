@@ -1,3 +1,6 @@
+timezoneJS.timezone.zoneFileBasePath = 'assets/tz'
+timezoneJS.timezone.init()
+
 $ ->
   # Flot
   options =
@@ -80,7 +83,7 @@ $ ->
     $.plot '#flot', data, options
 
   # DataTables
-  hour = new Date().toJSON().substr(0,13).replace('T',' ')
+  hour = new timezoneJS.Date('America/Chicago').toString('yyyy-MM-dd HH')
   start = escape JSON.stringify [hour,'egress']
   end   = escape JSON.stringify [hour,'egress',{}]
   columns = [

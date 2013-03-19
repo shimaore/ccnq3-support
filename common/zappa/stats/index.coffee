@@ -7,6 +7,7 @@ html ->
     script type:'text/javascript', src:'assets/coffee-script.js'
     script type:'text/javascript', src:'assets/coffeecup.js'
     script type:'text/javascript', src:'assets/jquery-1.9.1.min.js'
+    script type:'text/javascript', src:'assets/date.js'
     # Flot:
     script type:'text/javascript', src:'assets/jquery.flot.js'
     script type:'text/javascript', src:'assets/jquery.flot.time.js'
