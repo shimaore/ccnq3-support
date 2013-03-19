@@ -8,6 +8,12 @@ $ ->
       tickDecimals: 0
       tickSize: 1
       mode: 'time'
+    grid:
+      hoverable: true
+    zoom:
+      interactive: true
+    pan:
+      interactive: true
 
   data = []
   data[0] =

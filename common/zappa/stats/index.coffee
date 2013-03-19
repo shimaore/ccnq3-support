@@ -9,6 +9,8 @@ html ->
     script type:'text/javascript', src:'assets/jquery-1.9.1.min.js'
     script type:'text/javascript', src:'assets/jquery.flot.js'
     script type:'text/javascript', src:'assets/jquery.flot.time.js'
+    script type:'text/javascript', src:'assets/jquery.flot.navigate.js'
+    script type:'text/javascript', src:'assets/jquery.flot.tooltip.js'
     script type:'text/coffeescript', src:'stats.coffee'
   body ->
     div id:"main", ->
