@@ -14,4 +14,4 @@ html ->
     script type:'text/coffeescript', src:'stats.coffee'
   body ->
     div id:"main", ->
-      div id:"flot"
+      div id:"flot", 'Please wait, retrieving data...'
