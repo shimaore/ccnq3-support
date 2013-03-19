@@ -1,3 +1,10 @@
+ccnq3-support (0.0.14) unstable; urgency=low
+
+  * stats: try with timezoneJS
+  * stats: back to smaller diagram
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 19 Mar 2013 23:49:24 +0100
+
 ccnq3-support (0.0.13) unstable; urgency=low
 
   * stats: trying datatables
