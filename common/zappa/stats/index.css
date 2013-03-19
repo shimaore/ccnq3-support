@@ -1,0 +1,18 @@
+body {
+  font-family: "Gillius", sans-serif;
+  font-size: 11pt;
+}
+input {
+  border: none;
+  border-bottom: 1px solid #999;
+}
+tt {
+  font-family: "Inconsolata", fixed;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+#plot {
+  width: 800px;
+  height: 600px;
+}

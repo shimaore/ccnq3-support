@@ -5,7 +5,7 @@
 
   fs = require 'fs'
   path = require 'path'
-  root = path.join __dirname, 'support'
+  root = path.join __dirname, 'stats'
 
   @get '/_ccnq3/stats/*', ->
     name = @params[0]
