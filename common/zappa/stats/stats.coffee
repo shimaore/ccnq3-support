@@ -1,7 +1,7 @@
-timezoneJS.timezone.zoneFileBasePath = 'assets/tz'
-timezoneJS.timezone.init()
-
 $ ->
+  timezoneJS.timezone.zoneFileBasePath = 'assets/tz'
+  timezoneJS.timezone.init()
+
   # Flot
   options =
     series:
@@ -65,7 +65,6 @@ $ ->
 
   $.getJSON "/cdrs/_design/stats/_view/account_monitor?group_level=2", (json) ->
     for row in json.rows
-      # [date,direction,account] = row.key
       [hour,direction] = row.key
       hour = hour.replace ' ', 'T'
       hour += ':00'
@@ -83,7 +82,8 @@ $ ->
     $.plot '#flot', data, options
 
   # DataTables
-  hour = new timezoneJS.Date('America/Chicago').toString('yyyy-MM-dd HH')
+  timezone = 'US/Central' # FIXME this should be provided somewhere else!!
+  hour = new timezoneJS.Date(timezone).toString('yyyy-MM-dd HH')
   start = escape JSON.stringify [hour,'egress']
   end   = escape JSON.stringify [hour,'egress',{}]
   columns = [
