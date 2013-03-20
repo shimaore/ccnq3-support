@@ -2,6 +2,7 @@
 @ccnq3.graph_hourly = (timezone) ->
 
   # Flot
+  now = Date.now()
   options =
     series:
       lines:
@@ -15,6 +16,8 @@
       timezone: timezone
       timeformat: "%Y-%m-%d %H"
       minTickSize: [1,"hour"]
+      min: Date.now() - 24*3600*1000
+      max: Date.now()
     yaxis:
       min: 0
     yaxes: [
