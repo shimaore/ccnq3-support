@@ -1,3 +1,10 @@
+ccnq3-support (0.0.15) unstable; urgency=low
+
+  * stats: trying to work around timezone defns
+  * stats: split table from graph
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Mar 2013 01:04:11 +0100
+
 ccnq3-support (0.0.14) unstable; urgency=low
 
   * stats: try with timezoneJS
