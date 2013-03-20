@@ -1,3 +1,9 @@
+ccnq3-support (0.0.17) unstable; urgency=low
+
+  * stats: proper timezone handling (finally); clicking on graph fills table
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Mar 2013 13:48:28 +0100
+
 ccnq3-support (0.0.16) unstable; urgency=low
 
   * stats: table shows when clicking on point
