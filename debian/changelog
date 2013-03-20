@@ -1,3 +1,9 @@
+ccnq3-support (0.0.16) unstable; urgency=low
+
+  * stats: table shows when clicking on point
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Mar 2013 12:38:04 +0100
+
 ccnq3-support (0.0.15) unstable; urgency=low
 
   * stats: trying to work around timezone defns
