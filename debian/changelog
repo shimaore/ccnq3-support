@@ -1,3 +1,10 @@
+ccnq3-support (0.0.18) unstable; urgency=low
+
+  * stats: oups, forgot one file
+  * stats: make the graph show the last 24h
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 20 Mar 2013 14:01:34 +0100
+
 ccnq3-support (0.0.17) unstable; urgency=low
 
   * stats: proper timezone handling (finally); clicking on graph fills table
