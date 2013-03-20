@@ -18,7 +18,8 @@ html ->
     link rel:'stylesheet', href:'assets/dt/css/jquery.dataTables.css', type:'text/css'
     # and our stuff:
     script type:'text/coffeescript', src:'stats.coffee'
+    script type:'text/coffeescript', src:'table.coffee'
   body ->
     div id:"main", ->
       div id:"flot", 'Please wait, retrieving data...'
-      div id:"table"
+      table id:"table"

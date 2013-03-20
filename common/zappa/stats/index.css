@@ -16,3 +16,7 @@ tt {
   width: 800px;
   height: 640px;
 }
+
+.right {
+  text-align: right;
+}
