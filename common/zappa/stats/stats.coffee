@@ -21,6 +21,7 @@ $ ->
     ]
     grid:
       hoverable: true
+      clickable: true
     zoom:
       interactive: true
     pan:
@@ -80,3 +81,6 @@ $ ->
 
     $('#flot').empty()
     $.plot '#flot', data, options
+    $('#flot').bind 'plotclick', (event,pos,item) ->
+      console.log "Updating for #{pos.x}"
+      window.ccnq3.account_monitor? pos.x

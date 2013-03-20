@@ -17,8 +17,8 @@ html ->
     script type:'text/javascript', src:'assets/dt/js/jquery.dataTables.js'
     link rel:'stylesheet', href:'assets/dt/css/jquery.dataTables.css', type:'text/css'
     # and our stuff:
-    script type:'text/coffeescript', src:'stats.coffee'
     script type:'text/coffeescript', src:'table.coffee'
+    script type:'text/coffeescript', src:'stats.coffee'
   body ->
     div id:"main", ->
       div id:"flot", 'Please wait, retrieving data...'

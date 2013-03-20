@@ -1,9 +1,14 @@
-$ ->
+window.ccnq3 ?= {}
+window.ccnq3.account_monitor = (hour) ->
   timezoneJS.timezone.zoneFileBasePath = 'assets/tz'
   timezoneJS.timezone.init()
 
   timezone = 'US/Central' # FIXME this should be provided somewhere else!!
-  hour = new timezoneJS.Date(timezone).toString('yyyy-MM-dd HH')
+  if hour?
+    hour = new timezoneJS.Date hour, timezone
+  else
+    hour = new timezoneJS.Date timezone
+  hour = hour.toString('yyyy-MM-dd HH')
 
   # DataTables
   start = escape JSON.stringify [hour]
