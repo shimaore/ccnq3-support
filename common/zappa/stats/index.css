@@ -14,9 +14,14 @@ tt {
 
 #flot {
   width: 800px;
-  height: 640px;
+  height: 600px;
 }
 
 .right {
   text-align: right;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 12pt;
 }

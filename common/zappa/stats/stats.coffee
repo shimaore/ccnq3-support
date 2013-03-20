@@ -1,4 +1,5 @@
-$ ->
+@ccnq3 ?= {}
+@ccnq3.graph_hourly = (timezone) ->
 
   # Flot
   options =
@@ -11,7 +12,8 @@ $ ->
         show: false
     xaxis:
       mode: 'time'
-      timeformat: "%Y-%m-%d %H:--"
+      timezone: timezone
+      timeformat: "%Y-%m-%d %H"
       minTickSize: [1,"hour"]
     yaxis:
       min: 0
@@ -67,9 +69,8 @@ $ ->
   $.getJSON "/cdrs/_design/stats/_view/account_monitor?group_level=2", (json) ->
     for row in json.rows
       [hour,direction] = row.key
-      hour = hour.replace ' ', 'T'
-      hour += ':00'
-      hour = new Date hour
+      [yr,mo,dy,hr] = hour.split /[^\d]/
+      hour = new timezoneJS.Date yr, mo-1, dy, hr, timezone
       if direction is 'ingress'
         data[0].data.push [hour,row.value.attempts/3600]
         data[1].data.push [hour,row.value.success/3600]
@@ -82,5 +83,4 @@ $ ->
     $('#flot').empty()
     $.plot '#flot', data, options
     $('#flot').bind 'plotclick', (event,pos,item) ->
-      console.log "Updating for #{pos.x}"
-      window.ccnq3.account_monitor? pos.x
+      window.ccnq3.account_monitor? pos.x, timezone

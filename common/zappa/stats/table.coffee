@@ -1,14 +1,12 @@
-window.ccnq3 ?= {}
-window.ccnq3.account_monitor = (hour) ->
-  timezoneJS.timezone.zoneFileBasePath = 'assets/tz'
-  timezoneJS.timezone.init()
-
-  timezone = 'US/Central' # FIXME this should be provided somewhere else!!
+@ccnq3 ?= {}
+@ccnq3.account_monitor = (hour,timezone) ->
   if hour?
     hour = new timezoneJS.Date hour, timezone
   else
     hour = new timezoneJS.Date timezone
   hour = hour.toString('yyyy-MM-dd HH')
+
+  $('#table caption').html "#{hour} #{timezone}"
 
   # DataTables
   start = escape JSON.stringify [hour]
@@ -68,3 +66,4 @@ window.ccnq3.account_monitor = (hour) ->
     $('#table').dataTable
       aaData: data
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
+      bDestroy: true

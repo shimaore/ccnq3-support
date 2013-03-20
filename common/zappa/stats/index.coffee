@@ -19,7 +19,10 @@ html ->
     # and our stuff:
     script type:'text/coffeescript', src:'table.coffee'
     script type:'text/coffeescript', src:'stats.coffee'
+    script type:'text/coffeescript', src:'start.coffee'
+
   body ->
     div id:"main", ->
       div id:"flot", 'Please wait, retrieving data...'
-      table id:"table"
+      table id:"table", ->
+        caption 'Please click on a data-point'
