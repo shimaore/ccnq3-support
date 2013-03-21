@@ -19,7 +19,7 @@ html ->
       div id:"selectors"
       # there will be a "Select All" checkbox at the top
       div ->
-        checkbox id:"select_all"
+        input type:'checkbox', id:"select_all"
         label for:"select_all", "Select All"
         button id:"add_to_working_set", "Add to My Working Set"
       # The selectors' output is shown in a list below
