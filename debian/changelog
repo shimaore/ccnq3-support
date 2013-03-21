@@ -1,3 +1,10 @@
+ccnq3-support (0.0.22) unstable; urgency=low
+
+  * prov: proper script set
+  * prov: corrected references; made functions available properly
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 21 Mar 2013 16:45:25 +0100
+
 ccnq3-support (0.0.21) unstable; urgency=low
 
   * prov: proper script name
