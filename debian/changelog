@@ -1,3 +1,11 @@
+ccnq3-support (0.0.19) unstable; urgency=low
+
+  * partial code for prov
+  * prov: assets import
+  * prov: add .css
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 21 Mar 2013 15:51:36 +0100
+
 ccnq3-support (0.0.18) unstable; urgency=low
 
   * stats: oups, forgot one file
