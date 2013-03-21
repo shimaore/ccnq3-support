@@ -1,5 +1,5 @@
 @ccnq3 ?= {}
-q = (v) -> escape JSON.stringify v
+@ccnq3.q = (v) -> escape JSON.stringify v
 input = '#input'
 
 build_item = (row) ->
@@ -18,7 +18,7 @@ build_rows = (rows) ->
   for row in rows
     build_item row
 
-getJSON = (uri) ->
+@ccnq3.get = (uri) ->
   $.getJSON uri, (json) ->
     unless json?.rows?
       $(input).html 'Nothing found'
@@ -28,26 +28,29 @@ getJSON = (uri) ->
 # Selectors are tidbits of coffecup.
 selectors =
   account: ->
+    label 'Account'
     input title:'Account', alt:'Account'
     coffeescript ->
-      $('account_selector input').bind 'change', ->
-        getJSON "/provisioning/_design/prov/_view/by_account?include_docs=true&key=#{q $(@).val()}"
+      $('#account_selector input').bind 'change', ->
+        ccnq3.get "/provisioning/_design/prov/_view/by_account?include_docs=true&key=#{ccnq3.q $(@).val()}"
 
   endpoint: ->
+    label 'Endpoint'
     input title:'Endpoint', alt:'Endpoint'
     coffeescript ->
-      $('endpoint_selector input').bind 'change', ->
-        getJSON "/provisioning/_all_docs?include_docs=true&key=endpoint:#{q $(@).val()}"
+      $('#endpoint_selector input').bind 'change', ->
+        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=endpoint:#{ccnq3.q $(@).val()}"
 
   number: ->
+    label 'Number'
     input title:'Number', alt:'Number'
     coffeescript ->
-      $('number_selector input').bind 'change', ->
-        getJSON "/provisioning/_all_docs?include_docs=true&key=endpoint:#{q $(@).val()}"
+      $('#number_selector input').bind 'change', ->
+        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=endpoint:#{ccnq3.q $(@).val()}"
 
 for name in Object.keys(selectors).sort()
   def = selectors[name]
-  content = coffeecup.render def, {getJSON,q}
+  content = coffeecup.render def
   e = $ """
     <div id="#{name}_selector"></div>
   """
