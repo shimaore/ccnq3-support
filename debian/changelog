@@ -1,3 +1,9 @@
+ccnq3-support (0.0.21) unstable; urgency=low
+
+  * prov: proper script name
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 21 Mar 2013 16:24:04 +0100
+
 ccnq3-support (0.0.20) unstable; urgency=low
 
   * `checkbox` is not native coffeecup
