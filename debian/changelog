@@ -1,3 +1,9 @@
+ccnq3-support (0.0.26) unstable; urgency=low
+
+  * support/trace: added TCP ports
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Fri, 22 Mar 2013 00:14:51 +0100
+
 ccnq3-support (0.0.25) unstable; urgency=low
 
   * prov: initial code for select_all
