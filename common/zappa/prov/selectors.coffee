@@ -56,3 +56,7 @@ for name in Object.keys(selectors).sort()
   """
   e.html content
   $('#selectors').append e
+
+$('#select_all').bind 'change', ->
+  checked = @checked
+  $('.input_item').each -> @checked = checked
