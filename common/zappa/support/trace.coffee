@@ -9,9 +9,9 @@ send_request = (request) ->
     div class:"packet request split-#{@is_new}", ->
       span class:"time",  -> @['frame.time']
       span class:"callid", -> @['sip.Call-ID']
-      span class:"src",   -> @['ip.src']+':'+@['udp.srcport']
+      span class:"src",   -> @['ip.src']+':'+(@['udp.srcport']?@['tcp.srcport'])
       span '→'
-      span class:"dst",   -> @['ip.dst']+':'+@['udp.dstport']
+      span class:"dst",   -> @['ip.dst']+':'+(@['udp.dstport']?@['tcp.dstport'])
       span class:"method", title:h(@['sip.Request-Line']), -> @['sip.Method']
       span class:"ruri",  -> @['sip.r-uri.user']+'@'+@['sip.r-uri.host']
       span class:"from", title: h(@['sip.From']), -> @['sip.from.user']
@@ -22,9 +22,9 @@ send_request = (request) ->
     div class:"packet response split-#{@is_new}", ->
       span class:"time",  -> @['frame.time']
       span class:"callid", -> @['sip.Call-ID']
-      span class:"dst",   -> @['ip.dst']+':'+@['udp.dstport']
+      span class:"dst",   -> @['ip.dst']+':'+(@['udp.dstport']?@['tcp.dstport'])
       span '←'
-      span class:"src",   -> @['ip.src']+':'+@['udp.srcport']
+      span class:"src",   -> @['ip.src']+':'+(@['udp.srcport']?@['tcp.srcport'])
       span class:"status", title:h(@['sip.Status-Line']), -> @['sip.Status-Code']
       span class:"from", title:h(@['sip.From']), -> @['sip.from.user']
       span '←'
