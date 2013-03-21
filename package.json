@@ -1,0 +1,20 @@
+{
+  "name": "ccnq3_support",
+  "version": "0.0.1",
+  "description": "Support UI in CCNQ3",
+  "keywords": "",
+  "author": { "name": "Stephane Alnet", "email": "stephane@shimaore.net" },
+  "scripts": {
+    "couchapps": "cd couchapps && coffee install.coffee"
+  , "compact": "cd couchapps && coffee compact.coffee"
+  },
+  "dependencies": {
+    "couchapp": "*"
+  , "ccnq3": ">=0.3.4"
+  , "pico": ">=0.1.13"
+  },
+  "engines": { "node": ">=0.4.7", "coffee": ">=1.1.1" },
+
+  "private": true,
+  "ok": true
+}
