@@ -5,7 +5,7 @@ input = '#input'
 build_item = (row) ->
   e = $ """
     <li>
-      <checkbox class="input_item">
+      <input type="checkbox" class="input_item" />
       <span class="input_type">#{row.doc.type}</span>
       <span class="input_id">#{row.doc[row.doc.type]}</span>
     </li>
