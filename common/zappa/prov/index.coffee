@@ -9,7 +9,6 @@ html ->
     script type:'text/javascript', src:'assets/jquery-1.9.1.min.js'
     # and our stuff:
     script type:'text/coffeescript', src:'selectors.coffee'
-    script type:'text/coffeescript', src:'start.coffee'
 
   body ->
 
