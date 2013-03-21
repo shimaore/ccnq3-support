@@ -39,14 +39,14 @@ selectors =
     input title:'Endpoint', alt:'Endpoint'
     coffeescript ->
       $('#endpoint_selector input').bind 'change', ->
-        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=endpoint:#{ccnq3.q $(@).val()}"
+        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=#{ccnq3.q 'endpoint:'+$(@).val()}"
 
   number: ->
     label 'Number'
     input title:'Number', alt:'Number'
     coffeescript ->
       $('#number_selector input').bind 'change', ->
-        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=endpoint:#{ccnq3.q $(@).val()}"
+        ccnq3.get "/provisioning/_all_docs?include_docs=true&key=#{ccnq3.q 'number:'+$(@).val()}"
 
 for name in Object.keys(selectors).sort()
   def = selectors[name]
