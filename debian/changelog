@@ -1,3 +1,9 @@
+ccnq3-support (0.0.27) unstable; urgency=low
+
+  * traces: coffeecup is having issues with 'Unexpected @'
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Fri, 22 Mar 2013 00:36:23 +0100
+
 ccnq3-support (0.0.26) unstable; urgency=low
 
   * support/trace: added TCP ports
