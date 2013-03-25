@@ -1,3 +1,9 @@
+ccnq3-support (0.0.29) unstable; urgency=low
+
+  * follow: initial code
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Mar 2013 22:07:16 +0100
+
 ccnq3-support (0.0.28) unstable; urgency=low
 
   * stats: refresh graph every 5 minutes
