@@ -22,7 +22,7 @@ pico = require 'pico'
       @session.uri = url.format parsed
     @render 'follow'
 
-  @client '/_ccnq3/follow/main.js', ->
+  @client '/_ccnq3/follow/main.js': ->
     @connect()
 
     $ =>
