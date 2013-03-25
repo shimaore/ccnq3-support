@@ -1,3 +1,9 @@
+ccnq3-support (0.0.28) unstable; urgency=low
+
+  * stats: refresh graph every 5 minutes
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Mar 2013 15:48:04 +0100
+
 ccnq3-support (0.0.27) unstable; urgency=low
 
   * traces: coffeecup is having issues with 'Unexpected @'
