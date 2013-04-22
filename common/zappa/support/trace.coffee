@@ -95,6 +95,8 @@ send_request = (request) ->
       t = setInterval check_response, 1000
       log "Sent request reference #{request.reference}."
 
+  $('#results').html 'Please wait...'
+
   return
 
 $ ->
