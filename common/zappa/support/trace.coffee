@@ -71,7 +71,7 @@ send_request = (request) ->
             return if processed_host[doc.host]
             processed_host[doc.host] = true
 
-            $('#hosts').html (Object.keys processed_host).sort().map(format_host_link).join('|')
+            $('#hosts').html 'Hosts: '+(Object.keys processed_host).sort().map(format_host_link).join(' | ')
 
             el_host = $ """
               <div>
