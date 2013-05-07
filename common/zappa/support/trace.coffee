@@ -129,7 +129,7 @@ send_request = (request) ->
       return unless data?
       $('#traces').empty()
       if t? then clearInterval t
-      t = setInterval check_response, 1000
+      t = setInterval check_response, 2200
       log "Sent request reference #{request.reference}."
 
   $('#results').html '''
