@@ -74,12 +74,14 @@ send_request = (request) ->
             $('#hosts').html (Object.keys processed_host).sort().map(format_host_link).join('|')
 
             el_host = $ """
-              <h2 class="host"><a name="#{doc.host}">#{doc.host}</a></h2>
+              <div>
+                <h2 class="host"><a name="#{doc.host}">#{doc.host}</a></h2>
+              </div>
             """
             el_host.data 'doc', doc
             $('#traces').append el_host
 
-            if doc.packets?
+            if doc.packets? and doc.packets.length > 0
 
               # Compute Call-ID transitions
               last_callid = ''
@@ -89,11 +91,12 @@ send_request = (request) ->
                 last_callid = callid
 
               # Content
+              len = doc.packets.length
+
               el_link = $ pcap_link doc
               el_host.append el_link
 
-              len = doc.packets.length
-              el_packets = $ "<button>Show all #{len} packets</button>"
+              el_packets = $ "<div><button>Show all #{len} packets</button></div>"
 
               limit = 50
               if len > limit
@@ -102,13 +105,14 @@ send_request = (request) ->
                   display_packets el_packets, doc.packets
                 display_packets el_packets, doc.packets[(len-limit)..]
               else
+                el_packets.children('button').remove()
                 display_packets el_packets, doc.packets
 
-              $('#traces').append el_packets
+              el_host.append el_packets
 
             else
 
-              $('#traces').append 'No packets'
+              el_host.append 'No packets'
 
 
 
