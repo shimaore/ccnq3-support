@@ -1,3 +1,9 @@
+ccnq3-support (0.0.32) unstable; urgency=low
+
+  * traces: keep hosts list sorted, only show last 50 packets by default in long trace
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 07 May 2013 22:55:44 +0200
+
 ccnq3-support (0.0.31) unstable; urgency=low
 
   * traces: show that the query was submitted.
