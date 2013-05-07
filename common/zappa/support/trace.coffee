@@ -34,6 +34,20 @@ send_request = (request) ->
     a href: "/logging/trace:#{@reference}:#{@host}/packets.pcap", ->
       'Download (PCAP)'
 
+  format_host_link = (h) ->
+    """
+      <a href="##{h}">#{h}</a>
+    """
+
+  display_packets = (root,packets) ->
+    for packet in packets
+      if packet["sip.Method"]
+        el = $ sip_request packet
+      else
+        el = $ sip_response packet
+      el.data 'packet', packet
+      root.append el
+
   processed_host = {}
   check_response = ->
     $.ajax
@@ -57,27 +71,46 @@ send_request = (request) ->
             return if processed_host[doc.host]
             processed_host[doc.host] = true
 
-            el = $ """
-              <h2 class="host">#{doc.host}</h2>
-            """
-            el.data 'doc', doc
-            $('#results').append el
+            $('#hosts').html (Object.keys processed_host).sort().map(format_host_link).join('|')
 
-            el = $ pcap_link doc
-            $('#results').append el
+            el_host = $ """
+              <h2 class="host"><a name="#{doc.host}">#{doc.host}</a></h2>
+            """
+            el_host.data 'doc', doc
+            $('#traces').append el_host
 
             if doc.packets?
+
+              # Compute Call-ID transitions
               last_callid = ''
               for packet in doc.packets
                 callid = packet['sip.Call-ID']
                 packet.is_new = callid isnt last_callid
                 last_callid = callid
-                if packet["sip.Method"]
-                  el = $ sip_request packet
-                else
-                  el = $ sip_response packet
-                el.data 'packet', packet
-                $('#results').append el
+
+              # Content
+              el_link = $ pcap_link doc
+              el_host.append el_link
+
+              len = doc.packets.length
+              el_packets = $ "<button>Show all #{len} packets</button>"
+
+              limit = 50
+              if len > limit
+                el_packets.children('button').click ->
+                  el_packets.empty()
+                  display_packets el_packets, doc.packets
+                display_packets el_packets, doc.packets[(len-limit)..]
+              else
+                display_packets el_packets, doc.packets
+
+              $('#traces').append el_packets
+
+            else
+
+              $('#traces').append 'No packets'
+
+
 
   $.ajax
     type: 'PUT'
@@ -90,12 +123,15 @@ send_request = (request) ->
     success: (data) ->
       log data
       return unless data?
-      $('#results').empty()
+      $('#traces').empty()
       if t? then clearInterval t
       t = setInterval check_response, 1000
       log "Sent request reference #{request.reference}."
 
-  $('#results').html 'Please wait...'
+  $('#results').html '''
+    <div id="hosts"></div>
+    <div id="traces">Please wait...</div>
+  '''
 
   return
 
@@ -151,7 +187,7 @@ $ ->
   t = null
   $('body').on 'submit', '#trace', (e) ->
 
-    $('#results').spin()
+    $('#traces').spin()
 
     reference = 'r'+Math.random()
 
