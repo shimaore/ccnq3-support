@@ -144,7 +144,7 @@ $ ->
   # Add HTML form for query
   $('#entry').append '''
     <form id="trace">
-      <label>Trace
+      Trace
       <label>From
         <input type="text" name="from_user" id="from_user" size="16" />
       </label>
