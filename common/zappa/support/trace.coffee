@@ -222,6 +222,10 @@ $ ->
     if not days_ago or days_ago is ''
       days_ago = null
 
+    unless from_user? or to_user? or call_id?
+      alert 'You must enter a criteria.'
+      return
+
     # Send request
     request = {reference}
     request.from_user = from_user if from_user?
