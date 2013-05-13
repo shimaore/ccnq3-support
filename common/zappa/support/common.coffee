@@ -28,6 +28,9 @@ window.last_calls = (nl,gnum,limit = 20) ->
             #{doc.variables.start_stamp}
             (#{doc.variables.ccnq_direction}, #{doc.variables.ccnq_profile})
             #{doc.variables.ccnq_from_e164} → #{doc.variables.ccnq_to_e164}
+            (billable: #{doc.variables.billsec}s,
+             total: #{doc.variables.duration}s,
+             #{doc.variables.hangup_cause})
           </div>
           """
           g3.data 'doc', doc
