@@ -1,3 +1,9 @@
+ccnq3-support (0.0.39) unstable; urgency=low
+
+  * stats: added `profile_monitor` reporting
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 14 May 2013 20:09:13 +0200
+
 ccnq3-support (0.0.38) unstable; urgency=low
 
   * support: show duration information in calls summary
