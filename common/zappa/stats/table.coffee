@@ -1,19 +1,19 @@
 @ccnq3 ?= {}
-@ccnq3.account_monitor = (hour,timezone) ->
+@ccnq3.monitor = (hour,timezone,selector,field_name,view_name) ->
   if hour?
     hour = new timezoneJS.Date hour, timezone
   else
     hour = new timezoneJS.Date timezone
   hour = hour.toString('yyyy-MM-dd HH')
 
-  $('#table caption').html "#{hour} #{timezone}"
+  $("#{selector} caption").html "#{hour} #{timezone}"
 
   # DataTables
   start = escape JSON.stringify [hour]
   end   = escape JSON.stringify [hour,{}]
 
   columns = [
-    'Account'                 # 0
+    field_name                # 0
     'Inbound Attempts'        # 1
     'Inbound Attempts (cps)'
     'Inbound Success'
@@ -29,13 +29,13 @@
     'Outbound Minutes'
     'Outbound ACD (s)'
   ]
-  $.getJSON "/cdrs/_design/stats/_view/account_monitor?group_level=3&start_key=#{start}&end_key=#{end}", (json) ->
+  $.getJSON "/cdrs/_design/stats/_view/#{view_name}?group_level=3&start_key=#{start}&end_key=#{end}", (json) ->
     set = {}
     for row in json.rows
-      [hour,direction,account] = row.key
-      rec = set[account] ? []
+      [hour,direction,r0] = row.key
+      rec = set[r0] ? []
 
-      rec[0] = account ? ''
+      rec[0] = r0 ? ''
       for i in [0..columns.length]
         rec[i] ?= ''
       b = null
@@ -57,13 +57,18 @@
           rec[b++] = (row.value.duration/row.value.success).toFixed(1)
         else
           rec[b++] = ''
-      set[account] = rec
+      set[r0] = rec
 
     data = []
     for k,v of set
       data.push v
 
-    $('#table').dataTable
+    $(selector).dataTable
       aaData: data
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
       bDestroy: true
+
+@ccnq3.account_monitor = (hour,timezone) ->
+  @ccnq3.monitor hour, timezone, '#account', 'Account', 'account_monitor'
+@ccnq3.profile_monitor = (hour,timezone) ->
+  @ccnq3.monitor hour, timezone, '#profile', 'Profile', 'profile_monitor'
