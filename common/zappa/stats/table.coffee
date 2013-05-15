@@ -29,7 +29,7 @@
     'Outbound Minutes'
     'Outbound ACD (s)'
   ]
-  $.getJSON "/cdrs/_design/stats/_view/#{view_name}?group_level=3&start_key=#{start}&end_key=#{end}", (json) ->
+  $.getJSON "/cdrs/_design/support-stats/_view/#{view_name}?group_level=3&start_key=#{start}&end_key=#{end}", (json) ->
     set = {}
     for row in json.rows
       [hour,direction,r0] = row.key

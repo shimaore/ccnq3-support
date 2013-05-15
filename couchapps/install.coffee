@@ -13,4 +13,10 @@ ccnq3.config (config)->
   if provisioning_uri
     push_script provisioning_uri, 'prov'
     return
+
+  cdrs_uri = config.aggregate?.cdrs_uri
+  if cdrs_uri
+    push_script cdrs_uri, 'stats'
+    return
+
   return
