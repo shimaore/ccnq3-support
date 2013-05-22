@@ -1,3 +1,9 @@
+ccnq3-support (0.0.41) unstable; urgency=low
+
+  * stats: differentiate the tables
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 22 May 2013 22:39:19 +0200
+
 ccnq3-support (0.0.40) unstable; urgency=low
 
   * stats: moved views previousy in core.
