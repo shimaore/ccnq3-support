@@ -12,11 +12,9 @@ ccnq3.config (config)->
   provisioning_uri = config.provisioning?.couchdb_uri
   if provisioning_uri
     push_script provisioning_uri, 'prov'
-    return
 
   cdrs_uri = config.aggregate?.cdrs_uri
   if cdrs_uri
     push_script cdrs_uri, 'stats'
-    return
 
   return
