@@ -87,3 +87,4 @@
     $.plot '#flot', data, options
     $('#flot').bind 'plotclick', (event,pos,item) ->
       window.ccnq3.account_monitor? pos.x, timezone
+      window.ccnq3.profile_monitor? pos.x, timezone
