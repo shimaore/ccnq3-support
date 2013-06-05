@@ -21,24 +21,25 @@ ddoc =
   _id: '_design/support-stats'
   filters: {}
   language: 'javascript'
-  account_monitor:
-    map: p_fun (doc) ->
-      return unless doc.variables?
-      account = doc.variables.ccnq_account
-      direction = doc.variables.ccnq_direction
-      hour = doc.variables.start_stamp.substr 0, 13
-      emit [hour,direction,account], parseInt doc.variables.billsec ? 0
-      return
-    reduce: reduce_monitor
+  views:
+    account_monitor:
+      map: p_fun (doc) ->
+        return unless doc.variables?
+        account = doc.variables.ccnq_account
+        direction = doc.variables.ccnq_direction
+        hour = doc.variables.start_stamp.substr 0, 13
+        emit [hour,direction,account], parseInt doc.variables.billsec ? 0
+        return
+      reduce: reduce_monitor
 
-  profile_monitor:
-    map: p_fun (doc) ->
-      return unless doc.variables?
-      profile = doc.variables.ccnq_profile
-      direction = doc.variables.ccnq_direction
-      hour = doc.variables.start_stamp.substr 0, 13
-      emit [hour,direction,account], parseInt doc.variables.billsec ? 0
-      return
-    reduce: reduce_monitor
+    profile_monitor:
+      map: p_fun (doc) ->
+        return unless doc.variables?
+        profile = doc.variables.ccnq_profile
+        direction = doc.variables.ccnq_direction
+        hour = doc.variables.start_stamp.substr 0, 13
+        emit [hour,direction,account], parseInt doc.variables.billsec ? 0
+        return
+      reduce: reduce_monitor
 
 module.exports = ddoc
