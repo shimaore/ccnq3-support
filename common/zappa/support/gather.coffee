@@ -144,31 +144,34 @@ $ ->
           if gnum?
             last_calls nl, gnum
 
-          # Get endpoint status (from "locations" db)
+          # Get endpoint status (from /_ccnq3/registration/:username)
           if el_doc.endpoint?
             $('.location',nl).spin()
             $.ajax
               type: 'GET'
-              url: "/locations/#{qs.escape el_doc.endpoint}"
+              url: "/_ccnq3/registration/#{qs.escape el_doc.endpoint}"
               dataType: 'json'
               error: ->
                 $('.location',nl).empty().html "(no location found for endpoint #{el_doc.endpoint})"
                 log "Failed to get location for endpoint = #{el_doc.endpoint}"
               success: (doc) ->
                 $('.location',nl).empty()
-                g4 = $ """
+                html = """
                 <div class="location">
-                  Endpoint registration:
-                  <ul>
-                  <li>Contact: <tt>#{doc.contact}</tt></li>
-                  <li>Updated: <tt>#{doc.last_modified}</tt></li>
-                  <li>Valid until: <tt>#{doc.expires}</tt></li>
-                  <li>Received from: <tt>#{doc.received}</tt></li>
-                  <li>Call-ID: <tt>#{doc.callid}</tt></li>
-                  <li>User-Agent: <tt>#{doc.user_agent}</tt></li>
-                  </ul>
+                """
+                for reg in doc
+                  html += """
+                    Endpoint registration:
+                    <ul>
+                    <li>Contact: <tt>#{reg.uri}</tt></li>
+                    <li>Valid for: <tt>#{doc.expires}</tt></li>
+                    <li>User-Agent: <tt>#{doc.user_agent}</tt></li>
+                    </ul>
+                  """
+                html += """
                 </div>
                 """
+                g4 = $ html
                 g4.data 'doc', doc
                 $('.location',nl).append g4
 
