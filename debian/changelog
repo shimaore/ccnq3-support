@@ -1,3 +1,9 @@
+ccnq3-support (0.0.46) unstable; urgency=low
+
+  * HTML 5!
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 18 Jun 2013 20:53:57 +0200
+
 ccnq3-support (0.0.45) unstable; urgency=low
 
   * corrected field names
