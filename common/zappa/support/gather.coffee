@@ -8,7 +8,7 @@ $ ->
     <div id="tool-retrieve">
       Retrieve
       <label>Number:
-        <input type="text" name="number" id="number" size="16" />
+        <input type="tel" name="number" id="number" size="16" />
       </label>
       <label>Endpoint:
         <input type="text" name="endpoint" id="endpoint" disabled />

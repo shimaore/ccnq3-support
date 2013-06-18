@@ -146,17 +146,17 @@ $ ->
     <form id="trace">
       Trace
       <label>From
-        <input type="text" name="from_user" id="from_user" size="16" />
+        <input type="tel" name="from_user" id="from_user" size="16" />
       </label>
       →
       <label>To
-        <input type="text" name="to_user" id="to_user" size="16" />
+        <input type="tel" name="to_user" id="to_user" size="16" />
       </label>
       <label>Call-ID
         <input type="text" name="call_id" id="call_id" />
       </label>
       <label>
-        <input type="text" name="days_ago" id="days_ago" value="" size="2" />
+        <input type="number" name="days_ago" id="days_ago" value="" size="2" />
         days ago
       </label>
       <input type="submit" />
