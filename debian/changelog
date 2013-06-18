@@ -1,3 +1,9 @@
+ccnq3-support (0.0.47) unstable; urgency=low
+
+  * registration status: actually OpenSIPS' code provides more.
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 18 Jun 2013 22:17:51 +0200
+
 ccnq3-support (0.0.46) unstable; urgency=low
 
   * HTML 5!
