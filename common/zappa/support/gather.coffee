@@ -164,8 +164,8 @@ $ ->
                     Endpoint registration:
                     <ul>
                     <li>Contact: <tt>#{reg.uri}</tt></li>
-                    <li>Valid for: <tt>#{doc.expires}</tt></li>
-                    <li>User-Agent: <tt>#{doc.user_agent}</tt></li>
+                    <li>Valid for: <tt>#{reg.expires}</tt></li>
+                    <li>User-Agent: <tt>#{reg.user_agent}</tt></li>
                     </ul>
                   """
                 html += """
