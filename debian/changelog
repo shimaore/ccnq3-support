@@ -1,3 +1,9 @@
+ccnq3-support (0.0.44) unstable; urgency=low
+
+  * registration status: use the new method
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 18 Jun 2013 16:10:21 +0200
+
 ccnq3-support (0.0.43) unstable; urgency=low
 
   * stats: registered views as views
