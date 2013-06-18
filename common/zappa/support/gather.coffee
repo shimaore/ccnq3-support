@@ -165,6 +165,8 @@ $ ->
                     <ul>
                     <li>Contact: <tt>#{reg.uri}</tt></li>
                     <li>Valid for: <tt>#{reg.expires}</tt></li>
+                    <li>Received from: <tt>#{reg.received}</tt></li>
+                    <li>Call-ID: <tt>#{reg.callid}</tt></li>
                     <li>User-Agent: <tt>#{reg.user_agent}</tt></li>
                     </ul>
                   """
