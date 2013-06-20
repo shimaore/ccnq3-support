@@ -1,3 +1,9 @@
+ccnq3-support (0.0.48) unstable; urgency=low
+
+  * stats: proper this.
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 20 Jun 2013 20:33:39 +0200
+
 ccnq3-support (0.0.47) unstable; urgency=low
 
   * registration status: actually OpenSIPS' code provides more.
