@@ -63,8 +63,8 @@
     for k,v of set
       data.push v
 
-    $(selector).html ''
-    $(selector).dataTable
+    $(selector).html "<table><caption>#{field_name} data: click a data-point to view</caption></table>"
+    $(selector).children('table').dataTable
       aaData: data
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
 

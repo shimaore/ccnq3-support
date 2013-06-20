@@ -24,7 +24,5 @@ html ->
   body ->
     div id:"main", ->
       div id:"flot", 'Please wait, retrieving data...'
-      table id:"account", ->
-        caption 'Account data: Please click on a data-point'
-      table id:"profile", ->
-        caption 'Profile data: Please click on a data-point'
+      div id:"account"
+      div id:"profile"
