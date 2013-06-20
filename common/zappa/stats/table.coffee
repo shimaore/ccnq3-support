@@ -68,7 +68,7 @@
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
       bDestroy: true
 
-@ccnq3.account_monitor = (hour,timezone) ->
+@ccnq3.account_monitor = (hour,timezone) =>
   @ccnq3.monitor hour, timezone, '#account', 'Account', 'account_monitor'
-@ccnq3.profile_monitor = (hour,timezone) ->
+@ccnq3.profile_monitor = (hour,timezone) =>
   @ccnq3.monitor hour, timezone, '#profile', 'Profile', 'profile_monitor'
