@@ -62,9 +62,12 @@
     for k,v of set
       data.push v
 
-    $(selector).children('caption').html "#{field_name}: #{hour} #{timezone}"
 
-    $(selector).children('table').dataTable
+    t = $(selector).children('table')
+
+    t.children('caption').html "#{field_name}: #{hour} #{timezone}"
+
+    t.dataTable
       aaData: data
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
 
