@@ -38,7 +38,7 @@ ddoc =
         profile = doc.variables.ccnq_profile
         direction = doc.variables.ccnq_direction
         hour = doc.variables.start_stamp.substr 0, 13
-        emit [hour,direction,account], parseInt doc.variables.billsec ? 0
+        emit [hour,direction,profile], parseInt doc.variables.billsec ? 0
         return
       reduce: reduce_monitor
 
