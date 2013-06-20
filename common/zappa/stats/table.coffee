@@ -1,5 +1,6 @@
 @ccnq3 ?= {}
 @ccnq3.monitor = (hour,timezone,selector,field_name,view_name) ->
+  $(selector).html "<table><caption>#{field_name} data: updating</caption></table>"
   if hour?
     hour = new timezoneJS.Date hour, timezone
   else
@@ -63,7 +64,6 @@
     for k,v of set
       data.push v
 
-    $(selector).html "<table><caption>#{field_name} data: click a data-point to view</caption></table>"
     $(selector).children('table').dataTable
       aaData: data
       aoColumns: columns.map (v) -> { sTitle: v, sClass: 'right' }
