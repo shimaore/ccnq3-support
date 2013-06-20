@@ -1,3 +1,9 @@
+ccnq3-support (0.0.52) unstable; urgency=low
+
+  * stats: work around DataTable binding data to the DOM (?)
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Thu, 20 Jun 2013 22:04:40 +0200
+
 ccnq3-support (0.0.51) unstable; urgency=low
 
   * bDestroy removes all tables?
