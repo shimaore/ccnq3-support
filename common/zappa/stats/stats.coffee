@@ -69,7 +69,7 @@
     label: 'Outbound CSR (%)'
   ###
 
-  $.getJSON "/cdrs/_design/support-stats/_view/account_monitor?group_level=2", (json) ->
+  $.getJSON "/cdrs/_design/support-stats/_view/account_monitor?group_level=2&stale=update_after", (json) ->
     for row in json.rows
       [hour,direction] = row.key
       [yr,mo,dy,hr] = hour.split /[^\d]/
