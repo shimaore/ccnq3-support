@@ -7,8 +7,6 @@
     hour = new timezoneJS.Date timezone
   hour = hour.toString('yyyy-MM-dd HH')
 
-  $("#{selector} caption").html "#{hour} #{timezone}"
-
   # DataTables
   start = escape JSON.stringify [hour]
   end   = escape JSON.stringify [hour,{}]
@@ -63,6 +61,8 @@
     data = []
     for k,v of set
       data.push v
+
+    $(selector).children('caption').html "#{field_name}: #{hour} #{timezone}"
 
     $(selector).children('table').dataTable
       aaData: data
