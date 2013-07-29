@@ -7,7 +7,7 @@
   "scripts": {
     "preinstall": "coffee -c server.coffee.md"
   }
-  "dependencies": {
+, "dependencies": {
     "ccnq3": ">=0.3.4"
   , "pico": ">=0.1.13"
   },
