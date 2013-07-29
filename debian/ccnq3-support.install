@@ -1,3 +1,4 @@
 common/zappa/* /opt/ccnq3/src/applications/couch_daemon/zappa/include
 package.json /opt/ccnq3/src/applications/prov
 couchapps/* /opt/ccnq3/src/applications/prov/couchapps
+applications /opt/ccnq3/src

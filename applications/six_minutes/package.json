@@ -1,0 +1,16 @@
+{
+  "name": "ccnq3-support_six_minutes",
+  "version": "0.0.1",
+  "description": "Deci-hour reporting",
+  "keywords": "",
+  "author": { "name": "Stephane Alnet", "email": "stephane@shimaore.net" },
+  "scripts": {
+    "preinstall": "coffee -c server.coffee.md"
+  }
+  "dependencies": {
+    "ccnq3": ">=0.3.4"
+  , "pico": ">=0.1.13"
+  },
+  "private": true,
+  "ok": true
+}
