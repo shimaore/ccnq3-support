@@ -107,27 +107,26 @@ Update the plugins list at once
           plugins = new_plugins
 
       @enable 'minify'
-      @set 'zappa_prefix', '/_ccnq3/support/6minutes/zappa'
 
-      @post '/_ccnq3/support/6minutes/restart', ->
+      @post '/6minutes/restart', ->
         do load_plugins
         @json ok:true
 
-      @get '/_ccnq3/support/6minutes', ->
+      @get '/6minutes', ->
         @render 'default'
 
-      @get '/_ccnq3/support/6minutes/alerts', ->
+      @get '/6minutes/alerts', ->
         @json alerts
 
-      @get '/_ccnq3/support/6minutes/data', ->
+      @get '/6minutes/data', ->
         @json data
 
-      @del '/_ccnq3/support/6minutes/alerts', ->
+      @del '/6minutes/alerts', ->
         # FIXME instead of erasing, purge based on timestamp
         alerts = []
         @json ok:true
 
-      @del '/_ccnq3/support/6minutes/data', ->
+      @del '/6minutes/data', ->
         # FIXME instead of erasing, purge based on timestamp
         data = {}
         @json ok:true
@@ -143,7 +142,7 @@ Update the plugins list at once
             div id:'stats', ->
               table ->
 
-      @client '/ccnq3/support/6minutes/default.js', ->
+      @client '/6minutes/default.js', ->
         alert_room = 'alert'
 
         @connect()
@@ -205,5 +204,4 @@ Retrieve configuration.
     config = null
     ccnq3.config (cfg) ->
       config = cfg
-      (require 'zappajs') config.six_minutes.port, service
-
+      (require 'zappajs') config.six_minutes, service
