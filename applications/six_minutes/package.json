@@ -8,8 +8,9 @@
     "preinstall": "coffee -c server.coffee.md"
   }
 , "dependencies": {
-    "ccnq3": ">=0.3.4"
-  , "pico": ">=0.1.13"
+    "ccnq3": ">=0.5.3"
+  , "supercouch": ">=0.2.4"
+  , "byline": ">=3.1.1"
   },
   "private": true,
   "ok": true
