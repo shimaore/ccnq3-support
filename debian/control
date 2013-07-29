@@ -3,5 +3,5 @@ Maintainer: Stephane Alnet (Packaging) <stephane@shimaore.net>
 
 Package: ccnq3-support
 Architecture: all
-Depends: ccnq3 (>= 0.0.124)
+Depends: ccnq3 (>= 0.0.178)
 Description: Support toolset for CCNQ3
