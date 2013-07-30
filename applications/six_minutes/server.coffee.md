@@ -142,7 +142,7 @@ Update the plugins list at once
             div id:'stats', ->
               table ->
 
-      @client '/6minutes/default.js', ->
+      @client '/6minutes/default.js': ->
         alert_room = 'alert'
 
         @connect()
