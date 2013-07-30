@@ -183,9 +183,33 @@ Monitor CouchDB changes
 
 A `source` SuperCouch database instance is monitored for changes.
 
+    last_seq = null
+
     changes = (source) ->
+
+If the sequence number of the last changeset is known, re-use it.
+
+      if last_seq?
+        do_changes source
+      else
+
+Otherwise, retrieve it.
+
+        params =
+          descending: true
+          limit: 1
+        source.action('changes').send(params).end (err,res) ->
+          if err
+            console.dir error:err
+            return
+          last_seq = res.last_seq
+          do_changes source
+
+TODO: save `last_seq` and retrieve it at next start.
+
+    do_changes = (source) ->
       params =
-        since: last_time
+        since: last_seq
         heartbeat: 10000
         include_docs: true
       gatherer = byline source.action('changes').send params
@@ -196,6 +220,7 @@ A `source` SuperCouch database instance is monitored for changes.
           gatherer.emit 'error', error
           return
         gatherer.emit 'change', changeset
+        last_seq = changeset.seq
       gatherer
 
 
