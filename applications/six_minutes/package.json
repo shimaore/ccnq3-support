@@ -5,12 +5,11 @@
   "keywords": "",
   "author": { "name": "Stephane Alnet", "email": "stephane@shimaore.net" },
   "scripts": {
-    "preinstall": "coffee -c server.coffee.md"
+    "preinstall": "coffee -c server.coffee.md; for f in plugins/*.coffee.md lib/*.coffee.md; do coffee -c $f; done;"
   }
 , "dependencies": {
     "ccnq3": ">=0.5.3"
-  , "supercouch": ">=0.2.4"
-  , "byline": ">=3.1.1"
+  , "pico": ">=0.1.16"
   , "zappajs": ">=0.4.22"
   },
   "private": true,

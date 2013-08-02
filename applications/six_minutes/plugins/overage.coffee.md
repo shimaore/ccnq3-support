@@ -1,4 +1,4 @@
-    lists = require './lib/lists'
+    lists = require '../lib/lists'
 
     @plugin = ->
 
