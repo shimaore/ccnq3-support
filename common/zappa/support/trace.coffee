@@ -155,6 +155,9 @@ $ ->
       <label>Call-ID
         <input type="text" name="call_id" id="call_id" />
       </label>
+      <label>IP
+        <input type="text" name="ip" id="ip" />
+      </label>
       <label>
         <input type="number" name="days_ago" id="days_ago" value="" size="2" />
         days ago
@@ -216,13 +219,19 @@ $ ->
     if not call_id? or call_id is ''
       call_id = null
 
+    ip = $('#ip').val()
+    if ip? and ip isnt ''
+      ip = ip.replace /\s+/g, ''
+    if not ip? or ip is ''
+      ip = null
+
     days_ago = $('#days_ago').val()
     if days_ago? and days_ago isnt ''
       days_ago = parseInt days_ago
     if not days_ago or days_ago is ''
       days_ago = null
 
-    unless from_user? or to_user? or call_id?
+    unless from_user? or to_user? or call_id? or ip?
       alert 'You must enter a criteria.'
       return
 
@@ -231,6 +240,7 @@ $ ->
     request.from_user = from_user if from_user?
     request.to_user   = to_user   if to_user?
     request.call_id   = call_id   if call_id?
+    request.ip        = ip        if ip?
     request.days_ago  = days_ago  if days_ago?
     send_request request
 
