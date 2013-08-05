@@ -1,3 +1,12 @@
+ccnq3-support (0.0.59) unstable; urgency=low
+
+  * 6minutes: corrected syntax, dependencies.
+  * 6minutes: gather last sequence number.
+  * traces: Added IP criteria
+  * 6minutes: initial code
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 05 Aug 2013 17:59:54 +0200
+
 ccnq3-support (0.0.58) unstable; urgency=low
 
   * 6minutes: corrected json
