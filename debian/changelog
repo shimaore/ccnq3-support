@@ -1,3 +1,10 @@
+ccnq3-support (0.0.60) unstable; urgency=low
+
+  * Added README for `common/`
+  * six-minutes: using `server.js` only works if the server forks and returns.
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 13 Aug 2013 22:22:07 +0200
+
 ccnq3-support (0.0.59) unstable; urgency=low
 
   * 6minutes: corrected syntax, dependencies.
