@@ -6,6 +6,8 @@
   "author": { "name": "Stephane Alnet", "email": "stephane@shimaore.net" },
   "scripts": {
     "preinstall": "coffee -c server.coffee.md; for f in plugins/*.coffee.md lib/*.coffee.md; do coffee -c $f; done;"
+  , "start": "daemon -n ccnq3-support_six_minutes -o daemon.debug -D \"`pwd`\" -r -- node server.js"
+  , "stop":  "daemon -n ccnq3-support_six_minutes -o daemon.debug --stop"
   }
 , "dependencies": {
     "ccnq3": ">=0.5.3"
