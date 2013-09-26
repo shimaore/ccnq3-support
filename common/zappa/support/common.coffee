@@ -10,6 +10,7 @@ window.last_calls = (nl,gnum,limit = 20) ->
       limit: limit
       include_docs: true
       descending: true
+      stale: 'update_after'
     error: ->
       $('.calls',nl).empty().html "(no calls found for global number #{gnum})"
     success: (data) ->

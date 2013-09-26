@@ -20,14 +20,14 @@ $ ->
   $('body').on 'keyup', '#number', ->
     # Throttle
     if t? then clearTimeout t
-    t = setTimeout run, 250
+    t = setTimeout run, 750
 
   run = ->
 
     t = null
 
     $('#results').spin()
-    limit = $('#limit').val() or 10
+    limit = $('#limit').val() or 3
 
     # Value will be the national part of the number
     value = $('#number').val().replace /[^\d]+/g, ''
