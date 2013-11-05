@@ -18,5 +18,8 @@ If a call ends with a different error code we report it.
         if expected_codes[cause]
           return
 
-        @alert "Unexpected SIP code #{cause} for #{@profile} (#{@direction})"
+        @alert
+          text: "Unexpected SIP code #{cause} for #{@profile} (#{@direction})"
+          type: 'unexpected'
+          cause: cause
         @increment "unexpected #{@direction} #{@profile} #{cause}"

@@ -4,6 +4,8 @@
 
       for duration, pattern of lists
         if @duration.billable >= duration and pattern.exec @to
-          @alert "Fraud detection: #{@account} call to #{@to} from #{@from}"
+          @alert
+            text: "Fraud detection: #{@account} call to #{@to} from #{@from}"
+            type: 'fraud'
           @increment "fraud #{@account} #{@from}"
           return
