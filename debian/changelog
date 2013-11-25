@@ -1,3 +1,9 @@
+ccnq3-support (0.0.62) unstable; urgency=low
+
+  * Check timer: in all (successful) cases, retry
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Nov 2013 22:47:36 +0100
+
 ccnq3-support (0.0.61) unstable; urgency=low
 
   * Less queries on server.
