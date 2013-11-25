@@ -3,8 +3,13 @@ qs =
 
 log = -> console.log arguments...
 
+check_timer = null
+
 # Process response (callback)
 send_request = (request) ->
+
+  check_interval = 1000
+
   sip_request = coffeecup.compile ->
     div class:"packet request split-#{@is_new}", ->
       span class:"time",  -> @['frame.time']
@@ -114,7 +119,9 @@ send_request = (request) ->
 
               el_host.append 'No packets'
 
-
+          # Reload results
+          check_interval *= 1.5
+          check_timer = setTimeout check_response, check_interval
 
   $.ajax
     type: 'PUT'
@@ -128,8 +135,8 @@ send_request = (request) ->
       log data
       return unless data?
       $('#traces').empty()
-      if t? then clearInterval t
-      t = setInterval check_response, 2200
+      if check_timer? then clearTimeout check_timer
+      check_timer = setTimeout check_response, check_interval
       log "Sent request reference #{request.reference}."
 
   $('#results').html '''
