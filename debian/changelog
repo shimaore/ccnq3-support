@@ -1,3 +1,11 @@
+ccnq3-support (0.0.61) unstable; urgency=low
+
+  * Less queries on server.
+  * six_minutes updates
+  * Cancel timer processing when sending new request.
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Nov 2013 22:29:14 +0100
+
 ccnq3-support (0.0.60) unstable; urgency=low
 
   * Added README for `common/`
