@@ -4,7 +4,7 @@ ccnq3-support (0.0.61) unstable; urgency=low
   * six_minutes updates
   * Cancel timer processing when sending new request.
 
- -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Nov 2013 22:32:53 +0100
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Mon, 25 Nov 2013 22:35:30 +0100
 
 ccnq3-support (0.0.60) unstable; urgency=low
 
