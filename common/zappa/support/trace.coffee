@@ -67,7 +67,12 @@ send_request = (request) ->
         log 'Failed'
         log arguments
       success: (data) ->
-        return unless data?.rows?
+        unless data?.rows?
+          # Reload results
+          check_interval *= 1.2
+          check_timer = setTimeout check_response, check_interval
+          return
+
         for row in data.rows
           do (row) ->
             doc = row.doc
@@ -119,9 +124,9 @@ send_request = (request) ->
 
               el_host.append 'No packets'
 
-          # Reload results
-          check_interval *= 1.5
-          check_timer = setTimeout check_response, check_interval
+        # Reload results
+        check_interval *= 1.5
+        check_timer = setTimeout check_response, check_interval
 
   $.ajax
     type: 'PUT'
