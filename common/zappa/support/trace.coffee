@@ -17,11 +17,11 @@ send_request = (request) ->
       span class:"src",   -> @['ip.src']+':'+ (@['udp.srcport'] ? @['tcp.srcport'])
       span '→'
       span class:"dst",   -> @['ip.dst']+':'+ (@['udp.dstport'] ? @['tcp.dstport'])
-      span class:"method", title:h(@['sip.Request-Line']?''), -> @['sip.Method']
+      span class:"method", title:h(@['sip.Request-Line'] ? ''), -> @['sip.Method']
       span class:"ruri",  -> @['sip.r-uri.user']+'@'+@['sip.r-uri.host']
-      span class:"from", title: h(@['sip.From']?''), -> @['sip.from.user']
+      span class:"from", title: h(@['sip.From'] ? ''), -> @['sip.from.user']
       span '→'
-      span class:"to", title:h(@['sip.To']?''), -> @['sip.to.user']
+      span class:"to", title:h(@['sip.To'] ? ''), -> @['sip.to.user']
 
   sip_response = coffeecup.compile ->
     div class:"packet response split-#{@is_new}", ->
@@ -30,10 +30,10 @@ send_request = (request) ->
       span class:"dst",   -> @['ip.dst']+':'+ (@['udp.dstport'] ? @['tcp.dstport'])
       span '←'
       span class:"src",   -> @['ip.src']+':'+ (@['udp.srcport'] ? @['tcp.srcport'])
-      span class:"status", title:h(@['sip.Status-Line']?''), -> @['sip.Status-Code']
-      span class:"from", title:h(@['sip.From']?''), -> @['sip.from.user']
+      span class:"status", title:h(@['sip.Status-Line'] ? ''), -> @['sip.Status-Code']
+      span class:"from", title:h(@['sip.From'] ? ''), -> @['sip.from.user']
       span '←'
-      span class:"to", title:h(@['sip.To']?''), -> @['sip.to.user']
+      span class:"to", title:h(@['sip.To'] ? ''), -> @['sip.to.user']
 
   pcap_link = coffeecup.compile ->
     a href: "/logging/trace:#{@reference}:#{@host}/packets.pcap", ->
