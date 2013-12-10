@@ -1,3 +1,9 @@
+ccnq3-support (0.0.65) unstable; urgency=medium
+
+  * trace: use hash in URL to request responses.
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Tue, 10 Dec 2013 17:21:01 +0100
+
 ccnq3-support (0.0.64) unstable; urgency=low
 
   * corrected syntax
