@@ -3,12 +3,7 @@ qs =
 
 log = -> console.log arguments...
 
-check_timer = null
-
-# Process response (callback)
-send_request = (request) ->
-
-  check_interval = 1000
+get_response = (reference) ->
 
   sip_request = coffeecup.compile ->
     div class:"packet request split-#{@is_new}", ->
@@ -53,15 +48,29 @@ send_request = (request) ->
       el.data 'packet', packet
       root.append el
 
+  check_interval = 1000
+
+  check_timer = null
+
+  $('#results').html '''
+    <div id="hosts"></div>
+    <div id="traces">Please wait...</div>
+  '''
+
+  start_response_timer =
+    if check_timer? then clearTimeout check_timer
+    check_timer = setTimeout check_response, check_interval
+
   processed_host = {}
   check_response = ->
+
     $.ajax
       type: 'GET'
       url: '/logging/_all_docs'
       dataType: 'json'
       data:
-        startkey: JSON.stringify "trace:#{request.reference}:"
-        endkey: JSON.stringify "trace:#{request.reference};"
+        startkey: JSON.stringify "trace:#{reference}:"
+        endkey: JSON.stringify "trace:#{reference};"
         include_docs: true
       error: ->
         log 'Failed'
@@ -70,7 +79,7 @@ send_request = (request) ->
         unless data?.rows?
           # Reload results
           check_interval *= 1.2
-          check_timer = setTimeout check_response, check_interval
+          do start_response_timer
           return
 
         for row in data.rows
@@ -126,7 +135,13 @@ send_request = (request) ->
 
         # Reload results
         check_interval *= 1.5
-        check_timer = setTimeout check_response, check_interval
+        do start_response_timer
+
+    $('#traces').empty()
+  do start_response_timer
+
+# Process response (callback)
+send_request = (request) ->
 
   $.ajax
     type: 'PUT'
@@ -139,19 +154,12 @@ send_request = (request) ->
     success: (data) ->
       log data
       return unless data?
-      $('#traces').empty()
-      if check_timer? then clearTimeout check_timer
-      check_timer = setTimeout check_response, check_interval
+      get_responses request.reference
       log "Sent request reference #{request.reference}."
-
-  $('#results').html '''
-    <div id="hosts"></div>
-    <div id="traces">Please wait...</div>
-  '''
 
   return
 
-$ ->
+show_query = ->
 
   # Add HTML form for query
   $('#entry').append '''
@@ -256,6 +264,9 @@ $ ->
     request.days_ago  = days_ago  if days_ago?
     send_request request
 
+    $('#entry').empty()
+    window.location.hash = "##{reference}"
+
     # No default
     e.preventDefault()
     return false
@@ -269,5 +280,13 @@ $ ->
     send_request request
 
   return
+
+$ ->
+
+  if window.location.hash? and window.location.hash.match /^#r[\d.]+$/
+    reference = window.location.hash.substr 1
+    get_response reference
+  else
+    do show_query
 
 return
