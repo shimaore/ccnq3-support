@@ -141,7 +141,7 @@ get_response = (reference) ->
   do start_response_timer
 
 # Process response (callback)
-send_request = (request) ->
+send_request = (request,cb) ->
 
   $.ajax
     type: 'PUT'
@@ -154,8 +154,9 @@ send_request = (request) ->
     success: (data) ->
       log data
       return unless data?
-      get_responses request.reference
+      get_response request.reference
       log "Sent request reference #{request.reference}."
+      cb?()
 
   return
 
@@ -213,6 +214,7 @@ show_query = ->
   # Handle form submission
   t = null
   $('body').on 'submit', '#trace', (e) ->
+    e.preventDefault()
 
     $('#traces').spin()
 
@@ -262,13 +264,11 @@ show_query = ->
     request.call_id   = call_id   if call_id?
     request.ip        = ip        if ip?
     request.days_ago  = days_ago  if days_ago?
-    send_request request
-
-    $('#entry').empty()
-    window.location.hash = "##{reference}"
+    send_request request, ->
+      $('#entry').empty()
+      window.location.hash = "##{reference}"
 
     # No default
-    e.preventDefault()
     return false
 
   # Links for callids
