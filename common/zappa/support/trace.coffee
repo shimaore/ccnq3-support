@@ -57,7 +57,7 @@ get_response = (reference) ->
     <div id="traces">Please wait...</div>
   '''
 
-  start_response_timer =
+  start_response_timer = ->
     if check_timer? then clearTimeout check_timer
     check_timer = setTimeout check_response, check_interval
 
