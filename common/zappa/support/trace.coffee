@@ -53,8 +53,8 @@ get_response = (reference) ->
   check_timer = null
 
   $('#results').html '''
-    <div id="hosts"></div>
-    <div id="traces">Please wait...</div>
+    <div id="hosts">Please wait...</div>
+    <div id="traces"></div>
   '''
 
   start_response_timer = ->
@@ -73,7 +73,7 @@ get_response = (reference) ->
         endkey: JSON.stringify "trace:#{reference};"
         include_docs: true
       error: ->
-        log 'Failed'
+        log 'Failed to retrieve trace documents'
         log arguments
       success: (data) ->
         unless data?.rows?
