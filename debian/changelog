@@ -1,3 +1,10 @@
+ccnq3-support (0.0.68) unstable; urgency=medium
+
+  * trace: display query progress
+  * trace: refs push
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 11 Dec 2013 17:46:32 +0100
+
 ccnq3-support (0.0.67) unstable; urgency=medium
 
   * trace: better progress indication
