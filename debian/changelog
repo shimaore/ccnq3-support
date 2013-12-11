@@ -1,3 +1,9 @@
+ccnq3-support (0.0.67) unstable; urgency=medium
+
+  * trace: better progress indication
+
+ -- Stephane Alnet (Packaging) <stephane@shimaore.net>  Wed, 11 Dec 2013 17:26:41 +0100
+
 ccnq3-support (0.0.66) unstable; urgency=medium
 
   * syntax
