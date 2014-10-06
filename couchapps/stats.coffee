@@ -10,11 +10,13 @@ reduce_monitor = p_fun (key,values,rereduce) ->
       result.attempts += 1
       result.success += 1 if v > 0
       result.duration += v
+      result.short += 1 if v > 0 and v < 6
   else
     for v in values
       result.attempts += v.attempts
       result.success += v.success
       result.duration += v.duration
+      result.short += v.short
   return result
 
 ddoc =
