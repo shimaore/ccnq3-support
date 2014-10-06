@@ -18,13 +18,15 @@
     'Inbound Success'
     'Inbound Success (cps)'
     'Inbound CSR'
+    'Inbound Short (%)'
     'Inbound Minutes'
     'Inbound ACD (s)'
-    'Outbound Attempts'       # 8
+    'Outbound Attempts'       # 9
     'Outbound Attempts (cps)'
     'Outbound Success'
     'Outbound Success (cps)'
     'Outbound CSR'
+    'Outbound Short (%)'
     'Outbound Minutes'
     'Outbound ACD (s)'
   ]
@@ -41,7 +43,7 @@
       if direction is 'ingress'
         b = 1
       if direction is 'egress'
-        b = 8
+        b = 9
       if b?
         rec[b++] = row.value.attempts
         rec[b++] = (row.value.attempts/3600).toFixed(3)
@@ -49,7 +51,9 @@
         rec[b++] = (row.value.success/3600).toFixed(3)
         if row.value.attempts > 0
           rec[b++] = (100*row.value.success/row.value.attempts).toFixed(1)
+          rec[b++] = (100*row.value.short/row.value.attempts).toFixed(1)
         else
+          rec[b++] = ''
           rec[b++] = ''
         rec[b++] = (row.value.duration/60).toFixed(1)
         if row.value.success > 0
